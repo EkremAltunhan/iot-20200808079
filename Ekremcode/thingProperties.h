@@ -11,6 +11,9 @@ const char DEVICE_KEY[]  = SECRET_DEVICE_KEY;    // Secret device password
 
 void onServo1ControlChange();
 void onServo2ControlChange();
+extern bool servo1Status;
+extern bool servo2Status;
+
 
 float pressureCloud;
 float temperatureCloud;
@@ -27,6 +30,9 @@ void initProperties(){
   ArduinoCloud.addProperty(mq135ValueCloud, READ, ON_CHANGE, NULL);
   ArduinoCloud.addProperty(servo1Control, READWRITE, ON_CHANGE, onServo1ControlChange);
   ArduinoCloud.addProperty(servo2Control, READWRITE, ON_CHANGE, onServo2ControlChange);
+  ArduinoCloud.addProperty(servo1Status, READ, ON_CHANGE, NULL);
+ArduinoCloud.addProperty(servo2Status, READ, ON_CHANGE, NULL);
+
 
 }
 
